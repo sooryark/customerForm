@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "19aef5c0-327d-4e18-8d7c-ca71791da2b3",
+		"name": "Profile Screen",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "23611590"
+	},
+	"item": [
+		{
+			"name": "Add profile",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "firstName",
+							"value": "Sathiya",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "S",
+							"type": "text"
+						},
+						{
+							"key": "mobile",
+							"value": "7550207382",
+							"type": "text"
+						},
+						{
+							"key": "secondaryMobile",
+							"value": "5634642355",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "sathiya.mdq@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "userAddress",
+							"value": "JJNKJ",
+							"type": "text"
+						}
+					]
+				},
+				"url": "https://mdqualityapps.in/API/profile_screen/development/add_profile"
+			},
+			"response": []
+		},
+		{
+			"name": "GET All Profile",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://mdqualityapps.in/API/profile_screen/development/get_profile"
+			},
+			"response": []
+		},
+		{
+			"name": "GET particular profile",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "profileId",
+							"value": "7",
+							"type": "text"
+						}
+					]
+				},
+				"url": "https://mdqualityapps.in/API/profile_screen/development/get_profile"
+			},
+			"response": []
+		},
+		{
+			"name": "Update profile",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "firstName",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "mobile",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "secondaryMobile",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "sathyab@mdqualityapps.in",
+							"type": "text"
+						},
+						{
+							"key": "userAddress",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "profileId",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": "https://mdqualityapps.in/API/profile_screen/development/update_profile"
+			},
+			"response": []
+		}
+	]
+}
