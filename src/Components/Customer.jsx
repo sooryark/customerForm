@@ -3,8 +3,6 @@ import { useEffect, useState } from "react";
 import * as Yup from "yup";
 import person from "../assets/person.avif";
 
-
-
 // validationSchema
 
 const validationSchema = Yup.object().shape({
@@ -19,8 +17,6 @@ const validationSchema = Yup.object().shape({
 const Customer = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [profileData, setProfileData] = useState([]);
-  
-
 
   const handleSubmit = async (values, actions) => {
     const id = Math.floor(Math.random() * 100);
@@ -48,7 +44,7 @@ const Customer = () => {
         throw new Error("Failed to update profile");
       }
       setIsSubmitted(true);
-      
+
       console.log("Profile updated successfully");
       actions.setSubmitting(false);
       actions.resetForm();
@@ -110,186 +106,189 @@ const Customer = () => {
     }
   };
 
-  useEffect(()=>{
-    fetchdata()
-  },[])
- 
+  useEffect(() => {
+    fetchdata();
+  }, []);
+
   return (
     <>
-    <div className="w-full h-auto bg-[#1e293b] flex justify-around items-center">
-      <div className="">
-        <img
-          src={person}
-          alt="person-img"
-          className="w-3/4 h-1/2 rounded-lg object-cover"
-        />
-      </div>
-      <Formik
-        initialValues={{
-          firstName: "",
-          lastName: "",
-          mobileNumber: "",
-          secondaryMobileNumber: "",
-          address: "",
-          email: "",
-        }}
-        validationSchema={validationSchema}
-        onSubmit={handleSubmit}
-      >
-        {() => (
-          <Form>
-            <div className="w-[500px]">
-              <div className="p-2">
-                {/* <!-- Contact Form --> */}
-                <div className="rounded-sm  shadow-default ">
-                  <div className=" px-6.5">
-                    <h3 className=" text-3xl font-bold text-white  sm:text-2xl">
-                      Edit Profile
-                    </h3>
-                  </div>
-
-                  <div className="mt-5">
-                    <div className="w-full mb-4.5">
-                      <label className="mb-2 block text-white ">
-                        First Name
-                      </label>
-                      <Field
-                        type="text"
-                        placeholder="Enter your first name"
-                        name="firstName"
-                        className="w-full rounded bg-white py-3 px-5 font-medium outline-none transition border-black "
-                      />
-                      <ErrorMessage
-                        name="firstName"
-                        component="div"
-                        className="text-red-600"
-                      />
-                    </div>
-                    <div className="w-full mb-4.5">
-                      <label className="mb-2 block text-white ">
-                        Last Name
-                      </label>
-                      <Field
-                        type="text"
-                        name="lastName"
-                        placeholder="Enter your Last name"
-                        className="w-full rounded bg-white py-3 px-5 font-medium outline-none transition border-black "
-                      />
-                      <ErrorMessage
-                        name="lastName"
-                        component="div"
-                        className="text-red-600"
-                      />
+      <div className="w-full h-auto bg-[#1e293b] flex justify-around items-center">
+        <div className="">
+          <img
+            src={person}
+            alt="person-img"
+            className="w-3/4 h-1/2 rounded-lg object-cover"
+          />
+        </div>
+        <Formik
+          initialValues={{
+            firstName: "",
+            lastName: "",
+            mobileNumber: "",
+            secondaryMobileNumber: "",
+            address: "",
+            email: "",
+          }}
+          validationSchema={validationSchema}
+          onSubmit={handleSubmit}
+        >
+          {() => (
+            <Form>
+              <div className="w-[500px]">
+                <div className="p-2">
+                  {/* <!-- Contact Form --> */}
+                  <div className="rounded-sm  shadow-default ">
+                    <div className=" px-6.5">
+                      <h3 className=" text-3xl font-bold text-white  sm:text-2xl">
+                        Edit Profile
+                      </h3>
                     </div>
 
-                    <div className="mb-2">
-                      <label className="mb-2 block text-white ">
-                        Mobile Number
-                      </label>
-                      <Field
-                        type="number"
-                        name="mobileNumber"
-                        placeholder="Enter your Mobile Number"
-                        className="w-full rounded bg-white py-3 px-5 font-medium outline-none transition border-black "
-                      />
-                      <ErrorMessage
-                        name="mobileNumber"
-                        component="div"
-                        className="text-red-600"
-                      />
-                    </div>
+                    <div className="mt-5">
+                      <div className="w-full mb-4.5">
+                        <label className="mb-2 block text-white ">
+                          First Name
+                        </label>
+                        <Field
+                          type="text"
+                          placeholder="Enter your first name"
+                          name="firstName"
+                          className="w-full rounded bg-white py-3 px-5 font-medium outline-none transition border-black "
+                        />
+                        <ErrorMessage
+                          name="firstName"
+                          component="div"
+                          className="text-red-600"
+                        />
+                      </div>
+                      <div className="w-full mb-4.5">
+                        <label className="mb-2 block text-white ">
+                          Last Name
+                        </label>
+                        <Field
+                          type="text"
+                          name="lastName"
+                          placeholder="Enter your Last name"
+                          className="w-full rounded bg-white py-3 px-5 font-medium outline-none transition border-black "
+                        />
+                        <ErrorMessage
+                          name="lastName"
+                          component="div"
+                          className="text-red-600"
+                        />
+                      </div>
 
-                    <div className="mb-2">
-                      <label className="mb-2 block text-white ">
-                        secondary Number{" "}
-                        <span className="text-xs">(optional)</span>
-                      </label>
-                      <Field
-                        type="number"
-                        name="secondaryMobileNumber"
-                        placeholder="Enter your Secondary Number"
-                        className="w-full rounded bg-white py-3 px-5 font-medium outline-none transition border-black "
-                      />
-                    </div>
+                      <div className="mb-2">
+                        <label className="mb-2 block text-white ">
+                          Mobile Number
+                        </label>
+                        <Field
+                          type="number"
+                          name="mobileNumber"
+                          placeholder="Enter your Mobile Number"
+                          className="w-full rounded bg-white py-3 px-5 font-medium outline-none transition border-black "
+                        />
+                        <ErrorMessage
+                          name="mobileNumber"
+                          component="div"
+                          className="text-red-600"
+                        />
+                      </div>
 
-                    <div className="w-full mb-2">
-                      <label className="mb-2 block text-white ">Email</label>
-                      <Field
-                        type="email"
-                        name="email"
-                        placeholder="Enter your Email"
-                        className="w-full rounded bg-white py-3 px-5 font-medium outline-none transition border-black "
-                      />
-                      <ErrorMessage
-                        name="email"
-                        component="div"
-                        className="text-red-600"
-                      />
-                    </div>
+                      <div className="mb-2">
+                        <label className="mb-2 block text-white ">
+                          secondary Number{" "}
+                          <span className="text-xs">(optional)</span>
+                        </label>
+                        <Field
+                          type="number"
+                          name="secondaryMobileNumber"
+                          placeholder="Enter your Secondary Number"
+                          className="w-full rounded bg-white py-3 px-5 font-medium outline-none transition border-black "
+                        />
+                      </div>
 
-                    <div className="mb-2">
-                      <label className="mb-2 block text-white ">Address</label>
-                      <Field
-                        rows={2}
-                        name="address"
-                        placeholder="Type your message"
-                        className="w-full rounded bg-white py-3 px-5 font-medium outline-none transition border-black "
-                      ></Field>
-                      <ErrorMessage
-                        name="address"
-                        component="div"
-                        className="text-red-600"
-                      />
-                    </div>
+                      <div className="w-full mb-2">
+                        <label className="mb-2 block text-white ">Email</label>
+                        <Field
+                          type="email"
+                          name="email"
+                          placeholder="Enter your Email"
+                          className="w-full rounded bg-white py-3 px-5 font-medium outline-none transition border-black "
+                        />
+                        <ErrorMessage
+                          name="email"
+                          component="div"
+                          className="text-red-600"
+                        />
+                      </div>
 
-                    <button
-                      type="submit"
-                      className="flex w-full justify-center text-white rounded bg-primary p-3 mt-5 font-medium bg-[#0C359E]"
-                    >
-                      Update
-                    </button>
+                      <div className="mb-2">
+                        <label className="mb-2 block text-white ">
+                          Address
+                        </label>
+                        <Field
+                          rows={2}
+                          name="address"
+                          placeholder="Type your message"
+                          className="w-full rounded bg-white py-3 px-5 font-medium outline-none transition border-black "
+                        ></Field>
+                        <ErrorMessage
+                          name="address"
+                          component="div"
+                          className="text-red-600"
+                        />
+                      </div>
+
+                      <button
+                        type="submit"
+                        className="flex w-full justify-center text-white rounded bg-primary p-3 mt-5 font-medium bg-[#0C359E]"
+                      >
+                        Update
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </Form>
-        )}
-      </Formik>
-     
-    </div>
-    <div className="flex justify-center items-center bg-[#1e293b] h-[500px]">
-  
-      <table className="text-white">
-        <thead>
-          <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Mobile Number</th>
-            <th>Secondary Mobile Number</th>
-            <th>Email</th>
-            <th>Address</th>
-          </tr>
-        </thead>
-        <tbody>
-          {profileData && profileData?.data?.map((profile, index) => (
-            <tr key={index}>
-              <td>{profile.firstName}</td>
-              <td>{profile.lastName}</td>
-              <td>{profile.mobile}</td>
-              <td>{profile.secondaryMobile}</td>
-              <td>{profile.email}</td>
-              <td>{profile.userAddress}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    
-  
-
-  
-    </div>
+            </Form>
+          )}
+        </Formik>
+      </div>
+      <div className="flex justify-center gap-5 items-center bg-[#1e293b] h-[500px]">
+        <div className="flex justify-center items-center bg-[#1e293b] h-[500px]">
+          <table className="text-white border border-white">
+            <thead>
+              <tr>
+                <th className="border border-white">First Name</th>
+                <th className="border border-white">Last Name</th>
+                <th className="border border-white">Mobile Number</th>
+                <th className="border border-white">Secondary Mobile Number</th>
+                <th className="border border-white">Email</th>
+                <th className="border border-white">Address</th>
+              </tr>
+            </thead>
+            <tbody>
+              {profileData &&
+                profileData.data &&
+                profileData.data.map((profile, index) => (
+                  <tr key={index}>
+                    <td className="border border-white">{profile.firstName}</td>
+                    <td className="border border-white">{profile.lastName}</td>
+                    <td className="border border-white">{profile.mobile}</td>
+                    <td className="border border-white">
+                      {profile.secondaryMobile}
+                    </td>
+                    <td className="border border-white">{profile.email}</td>
+                    <td className="border border-white">
+                      {profile.userAddress}
+                    </td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </>
-
   );
 };
 
